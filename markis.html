@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Markis is the intelligence layer inside CandidateHub. It watches signals, recommends actions, drafts communications, and keeps talent workflows moving — without making decisions for your team.">
+    <title>Markis AI | CandidateHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        /* Hero Image Drop Shadow */
+        .markis-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background-color: #040812;
+            text-align: center;
+        }
+        .markis-hero-robot {
+            max-width: 480px;
+            width: 100%;
+            margin: 3rem auto 0;
+            display: block;
+            filter: drop-shadow(0 0 40px rgba(45, 123, 191, 0.3));
+        }
+
+        /* Principle Pills */
+        .principle-section {
+            background: #FFFFFF;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .principle-pills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .principle-pills { grid-template-columns: 1fr; }
+        }
+        .principle-pill-card {
+            background: #F8F9FB;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+
+        /* Showcase Section */
+        .showcase-section {
+            background: #EFF2F6;
+            padding: 6rem 0;
+        }
+        .showcase-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+        .showcase-row:last-child { margin-bottom: 0; }
+        .showcase-reverse { flex-direction: row-reverse; }
+        .showcase-img-col { flex: 1; display: flex; justify-content: center; width: 100%; }
+        .showcase-text-col { flex: 1; text-align: left; }
+        .showcase-img {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .showcase-bullets {
+            list-style: none; padding: 0; margin: 1.5rem 0 0;
+        }
+        .showcase-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #4A5568;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        .showcase-bullets li::before {
+            content: ''; position: absolute; left: 0; top: 6px;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #2D7BBF;
+        }
+
+        @media (max-width: 900px) {
+            .showcase-row, .showcase-reverse {
+                flex-direction: column;
+                gap: 2.5rem;
+                margin-bottom: 4rem;
+            }
+        }
+
+        /* Capability Cards */
+        .capabilities-section {
+            background: #FFFFFF;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 900px) {
+            .capability-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .capability-grid { grid-template-columns: 1fr; }
+        }
+        .capability-card {
+            background: #F8F9FB;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            transition: all 0.25s ease;
+        }
+        .capability-card:hover {
+            background: #FFFFFF;
+            border-color: #BFDAFF;
+            box-shadow: 0 4px 16px rgba(45, 123, 191, 0.1);
+        }
+        .cap-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: #EFF6FF; color: #2D7BBF;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .cap-icon svg { width: 18px; height: 18px; }
+
+        /* Stack Context Diagram */
+        .stack-section {
+            background: #EFF2F6;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .stack-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem auto 1rem;
+            flex-wrap: wrap;
+        }
+        .stack-pill {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .stack-arrow {
+            color: #94A3B8;
+        }
+
+        /* Markis Pricing Tier Callouts */
+        .tier-section {
+            background: #FFFFFF;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .tier-callouts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 768px) {
+            .tier-callouts { grid-template-columns: 1fr; }
+        }
+        .tier-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            display: flex; flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            min-height: 100%;
+        }
+        .tier-card.elevated {
+            border-top: 3px solid #2D7BBF;
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            padding: 1.75rem 1.5rem;
+        }
+        .tier-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0D1117;
+            margin-bottom: 0.75rem;
+        }
+        .tier-access {
+            font-size: 0.95rem;
+            color: #4A5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .tier-cta {
+            color: #2D7BBF;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .tier-cta:hover { text-decoration: underline; }
+
+        /* Final CTA */
+        .markis-final-cta {
+            background-color: #0A1929;
+            padding: 6rem 0;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header glass-panel">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="Logo.png" alt="CandidateHub Logo" class="logo-img">
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="/#problem">The Problem</a>
+                <a href="/markis">Markis AI</a>
+                <a href="/#how-it-works">Platform</a>
+                <a href="/#outcomes">Outcomes</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/trial" class="btn btn-secondary nav-btn-trial" style="margin-right: 0.5rem; background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
+                <a href="/demo" class="btn btn-primary">Book a Demo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation" style="display: none;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="markis-hero">
+        <div class="container relative z-10 text-center">
+            <span style="color: var(--primary); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1.5rem;">Meet Markis</span>
+            <h1 class="fade-in-up" style="animation-delay: 0.1s; font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; color: #fff;">Your embedded AI talent strategist.</h1>
+            <p class="fade-in-up" style="animation-delay: 0.2s; max-width: 640px; margin: 0 auto 2.5rem; color: #BFDAFF; font-size: 1.25rem; line-height: 1.6;">
+                Markis is the intelligence layer inside CandidateHub. It watches engagement signals, recommends next best actions, drafts communications, and keeps your talent workflows moving — without adding more work to your plate.
+            </p>
+            <div class="fade-in-up" style="animation-delay: 0.3s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/demo" class="btn btn-primary btn-large" style="background: var(--cta-orange); font-size: 1.1rem; padding: 1.1rem 2.8rem; box-shadow: 0 4px 15px rgba(241, 135, 1, 0.4); text-decoration: none;">Book a Demo</a>
+                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF; font-size: 1.1rem; padding: 1.1rem 2.8rem; text-decoration: none;">Start Free Trial</a>
+            </div>
+            
+            <img src="Markis.png" alt="Markis AI Robot" class="markis-hero-robot fade-in-up" style="animation-delay: 0.4s;">
+        </div>
+    </section>
+
+    <!-- The Principle Section -->
+    <section class="principle-section">
+        <div class="container" style="max-width: 760px;">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">How Markis works</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1.5rem; font-weight: 700;">Markis recommends. Your team decides. Always.</h2>
+            <p style="color: #4A5568; font-size: 1.125rem; line-height: 1.7; margin-bottom: 3rem;">
+                There's a lot of noise about AI making decisions in hiring. Markis doesn't work that way — and that's intentional. Every recommendation Markis makes is transparent, grounded in real activity data, and requires a human to act on it. Your team stays in control of every hire, every outreach, and every decision. Markis just makes sure you never miss the right moment to act.
+            </p>
+            
+            <div class="principle-pills">
+                <div class="principle-pill-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div style="color: #2D7BBF; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">Transparent</div>
+                    <div style="color: #4A5568; font-size: 0.875rem; line-height: 1.5;">Every recommendation shows its reasoning. No black box decisions.</div>
+                </div>
+                <div class="principle-pill-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div style="color: #2D7BBF; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">Advisory</div>
+                    <div style="color: #4A5568; font-size: 0.875rem; line-height: 1.5;">Markis suggests. Your team approves. Every action requires a human.</div>
+                </div>
+                <div class="principle-pill-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div style="color: #2D7BBF; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">Explainable</div>
+                    <div style="color: #4A5568; font-size: 0.875rem; line-height: 1.5;">Recommendations are grounded in real signals and activity data — not guesswork.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See it in action -->
+    <section class="showcase-section">
+        <div class="container" style="max-width: 1100px;">
+            
+            <!-- Subsection 3a (Image Left, Copy Right) -->
+            <div class="showcase-row">
+                <div class="showcase-img-col fade-in-up" style="animation-delay: 0.1s;">
+                    <img src="Markis-Welcome-Screen.png" alt="Markis Welcome Screen" class="showcase-img" style="max-width: 520px;">
+                </div>
+                <div class="showcase-text-col fade-in-up" style="animation-delay: 0.2s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Strategic intelligence</span>
+                    <h3 style="color: #0D1117; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Ask Markis anything about talent.</h3>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Markis acts as your on-demand talent intelligence strategist. Review a job description, audit your hiring process, build a nurture campaign, or analyze retention risks — just by asking. No configuration required. No waiting for a report.</p>
+                    <ul class="showcase-bullets">
+                        <li>Review and score job descriptions instantly</li>
+                        <li>Identify bottlenecks and drop-off risks in your funnel</li>
+                        <li>Build nurture campaigns for any role or talent pool</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Subsection 3b (Copy Left, Image Right -> Reverse Row on Desktop) -->
+            <div class="showcase-row showcase-reverse">
+                <div class="showcase-img-col fade-in-up" style="animation-delay: 0.1s;">
+                    <img src="Readiness-Score.png" alt="Readiness Score Interface" class="showcase-img" style="max-width: 400px;">
+                </div>
+                <div class="showcase-text-col fade-in-up" style="animation-delay: 0.2s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Requisition intelligence</span>
+                    <h3 style="color: #0D1117; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Know what's working before you post.</h3>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Before a role goes live, Markis reviews it and gives you a Readiness Score — flagging missing compensation data, location gaps, and content weaknesses that reduce applicant quality. It doesn't just tell you there's a problem. It tells you exactly what to fix and why.</p>
+                    <ul class="showcase-bullets">
+                        <li>Readiness scoring on every requisition</li>
+                        <li>Specific warnings with recommended fixes</li>
+                        <li>Quick actions to launch campaigns directly from the review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Subsection 3c (Image Left, Copy Right) -->
+            <div class="showcase-row">
+                <div class="showcase-img-col fade-in-up" style="animation-delay: 0.1s;">
+                    <img src="Journey-Builder.png" alt="Journey Builder Canvas" class="showcase-img" style="max-width: 520px;">
+                </div>
+                <div class="showcase-text-col fade-in-up" style="animation-delay: 0.2s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Journey architecture</span>
+                    <h3 style="color: #0D1117; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Multi-step journeys built in seconds.</h3>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Describe your campaign objective and audience, and Markis designs a complete multi-step engagement journey — including email themes, wait periods, and conversion strategy. You get a full campaign blueprint ready to review and launch. Edit anything, approve everything.</p>
+                    <ul class="showcase-bullets">
+                        <li>Complete journey blueprints from a single prompt</li>
+                        <li>Email themes, pacing, and CTA strategy included</li>
+                        <li>Build workflow only, or generate full messaging — your choice</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- What Markis Does -->
+    <section class="capabilities-section">
+        <div class="container" style="max-width: 1000px;">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Capabilities</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 2rem; font-weight: 700;">Everything Markis can do for your team.</h2>
+            
+            <div class="capability-grid">
+                <!-- Card 1 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Talent Intelligence Strategist</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Analyzes talent pools, market signals, and organizational needs to surface strategic recommendations.</div>
+                </div>
+                <!-- Card 2 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9 20l-5-5 5-5M15 4l5 5-5 5M4 15h11a4 4 0 004-4V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Journey Architect</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Designs automated, multi-channel candidate and employee journeys with email themes, pacing, and CTA strategy.</div>
+                </div>
+                <!-- Card 3 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Recruiting Coordinator</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Assists with scheduling, follow-ups, and routine candidate communications so nothing falls through the cracks.</div>
+                </div>
+                <!-- Card 4 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Employee Retention Advisor</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Identifies engagement signals and flight risks, prompting timely interventions before you lose great people.</div>
+                </div>
+                <!-- Card 5 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M18 20V10l-6-4-6 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 20V14h0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Workforce Planning Analyst</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Forecasts staffing needs across locations based on historical data, seasonality, and hiring trends.</div>
+                </div>
+                <!-- Card 6 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5V10h-5v10zM12 20h5V4h-5v16zM7 20h5v-8H7v8zM2 20h5v-4H2v4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Candidate Engagement Specialist</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Nurtures passive and declined candidates with relevant updates and opportunities — keeping relationships warm.</div>
+                </div>
+                <!-- Card 7 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M8 7h12M8 7l4-4M8 7l4 4M16 17H4M4 17l4-4M4 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Internal Mobility Advisor</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Matches existing employees to open roles and development opportunities, reducing external hiring costs.</div>
+                </div>
+                <!-- Card 8 -->
+                <div class="capability-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="cap-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="color: #0D1117; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Hiring Operations Manager</div>
+                    <div style="color: #4A5568; font-size: 0.85rem; line-height: 1.5;">Oversees end-to-end recruitment workflows, flagging compliance gaps and operational inefficiencies.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Stack Context -->
+    <section class="stack-section">
+        <div class="container" style="max-width: 860px;">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Where Markis fits</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1.5rem; font-weight: 700;">Markis sits above your ATS. Not instead of it.</h2>
+            <p style="color: #4A5568; font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">
+                Your ATS is your system of record. CandidateHub is your system of engagement. Markis is your system of intelligence. All three work together — Markis never requires you to rip and replace anything you already have.
+            </p>
+            
+            <div class="stack-diagram fade-in-up" style="animation-delay: 0.2s;">
+                <div class="stack-pill" style="background: #E2E8F0; color: #4A5568;">ATS / System of record</div>
+                <div class="stack-arrow">→</div>
+                <div class="stack-pill" style="background: var(--primary); color: #fff; font-weight: 600; padding: 0.875rem 1.75rem;">CandidateHub / System of engagement</div>
+                <div class="stack-arrow">→</div>
+                <div class="stack-pill" style="background: #0A1929; color: #fff;">Markis / System of intelligence</div>
+            </div>
+            
+            <p style="color: #94A3B8; font-size: 0.875rem; margin-top: 1rem;" class="fade-in-up" style="animation-delay: 0.3s;">
+                Works with Workday, Greenhouse, ADP, iCIMS, BambooHR, and more.
+            </p>
+        </div>
+    </section>
+
+    <!-- Markis is Included -->
+    <section class="tier-section">
+        <div class="container" style="max-width: 760px;">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Pricing</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1.5rem; font-weight: 700;">Markis comes with every plan.</h2>
+            <p style="color: #4A5568; font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">
+                Markis is not a bolt-on or an add-on. It's embedded in CandidateHub from day one. Every plan — including the free tier — includes access to Markis. The more you use CandidateHub, the smarter Markis gets about your specific candidates, teams, and workflows.
+            </p>
+            
+            <div class="tier-callouts">
+                <!-- Card 1 -->
+                <div class="tier-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="tier-name">Free</div>
+                    <div class="tier-access">Talent Intelligence Strategist — brainstorm, plan, and generate hiring strategies</div>
+                    <a href="https://beta.candidatehub.io" class="tier-cta">Get started free &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="tier-card elevated fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="tier-name">Starter</div>
+                    <div class="tier-access">Full Markis intelligence plus Journey Builder, campaign generation, and engagement tracking</div>
+                    <a href="https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01" class="tier-cta">Start free trial &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="tier-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="tier-name">Pro</div>
+                    <div class="tier-access">Everything in Starter plus advanced workflow intelligence, internal mobility, and employee engagement</div>
+                    <a href="/pricing" class="tier-cta">See Pro features &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="markis-final-cta">
+        <div class="container fade-in-up">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff;">See Markis in action.</h2>
+            <p style="color: #BFDAFF; font-size: 1.125rem; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                Book a 30-minute demo and we'll show you exactly how Markis works inside CandidateHub — tailored to your team size and hiring challenges.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/demo" class="btn btn-primary btn-large" style="background: var(--cta-orange); font-size: 1.1rem; padding: 1.1rem 2.8rem; box-shadow: 0 4px 15px rgba(241, 135, 1, 0.4); text-decoration: none;">Book a Demo</a>
+                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF; font-size: 1.1rem; padding: 1.1rem 2.8rem; text-decoration: none;">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer light-footer" style="background: #ffffff; border-top: 1px solid #e1e4e8;">
+        <div class="container text-dark">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="Logo.png" alt="CandidateHub Logo" class="logo-img" style="height: 24px; width: auto; filter: invert(0.8) brightness(0.2);">
+                        <span class="text-dark" style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; margin-left: 0.5rem;">CandidateHub</span>
+                    </div>
+                    <p class="text-body" style="margin-top:1rem;">The engagement layer your ATS was never designed to provide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="text-dark">Platform</h4>
+                        <a href="/markis" class="text-body">Markis AI</a>
+                        <a href="/#how-it-works" class="text-body">Features</a>
+                        <a href="/#how-it-works" class="text-body">Integrations</a>
+                        <a href="/pricing" class="text-body">Pricing</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Company</h4>
+                        <a href="/about" class="text-body">About</a>
+                        <a href="/#careers" class="text-body">Careers</a>
+                        <a href="/#contact" class="text-body">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Resources</h4>
+                        <a href="/#blog" class="text-body">Blog</a>
+                        <a href="/#help" class="text-body">Help Center</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Legal</h4>
+                        <a href="/#privacy" class="text-body">Privacy</a>
+                        <a href="/#terms" class="text-body">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-body">
+                &copy; 2026 CandidateHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
