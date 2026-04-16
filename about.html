@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CandidateHub was built to solve a problem most recruiting tools ignore. Learn about our mission, our story, and the team behind the Candidate Nurturing Engine™.">
+    <title>About Us | CandidateHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        /* Hero Section */
+        .about-hero {
+            min-height: auto;
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background-color: #040812;
+        }
+
+        /* The Story Section */
+        .story-section {
+            background-color: #ffffff;
+            padding: 6rem 0;
+        }
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .story-copy {
+            max-width: 560px;
+        }
+        .story-copy p {
+            color: #4A5568;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .story-quote-wrapper {
+            padding: 2rem;
+            background: #F8F9FB;
+            border-radius: 12px;
+        }
+        .story-quote {
+            font-size: 1.4rem;
+            color: #0D1117;
+            line-height: 1.5;
+            font-weight: 500;
+            position: relative;
+            margin: 0;
+            padding-left: 2rem;
+        }
+        .story-quote::before {
+            content: '\201C';
+            font-family: serif;
+            font-size: 6rem;
+            color: #BFDAFF;
+            position: absolute;
+            left: -1.5rem;
+            top: -2.5rem;
+            opacity: 0.6;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .story-container { grid-template-columns: 1fr; }
+            .story-quote-wrapper { margin-top: 2rem; }
+        }
+
+        /* What We Believe */
+        .principles-section {
+            background-color: #EFF2F6;
+            padding: 6rem 0;
+        }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 860px;
+            margin: 3rem auto 0;
+        }
+        @media (max-width: 768px) {
+            .principles-grid { grid-template-columns: 1fr; }
+        }
+        .principle-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            padding: 1.5rem;
+            text-align: left;
+        }
+        .principle-card h4 {
+            color: #0D1117;
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+        .principle-card p {
+            color: #4A5568;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* The Team Section */
+        .team-section {
+            background-color: #ffffff;
+            padding: 6rem 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 1024px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .team-grid { grid-template-columns: 1fr; }
+        }
+        .team-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-photo-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+        }
+        .team-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .team-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(45, 123, 191, 0.15);
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+        .team-card-info {
+            padding: 1.25rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .team-card-info h4 {
+            color: #0D1117;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .team-card-info .title {
+            color: #2D7BBF;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .team-card-info p {
+            color: #4A5568;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Mission Statement CTA */
+        .mission-cta {
+            background-color: #0A1929;
+            padding: 6rem 0;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header glass-panel">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="Logo.png" alt="CandidateHub Logo" class="logo-img">
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="/#problem">The Problem</a>
+                <a href="/#markis">Markis AI</a>
+                <a href="/#how-it-works">Platform</a>
+                <a href="/#outcomes">Outcomes</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/trial" class="btn btn-secondary nav-btn-trial" style="margin-right: 0.5rem; background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
+                <a href="/demo" class="btn btn-primary">Book a Demo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation" style="display: none;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero text-center">
+        <div class="container relative z-10 text-center">
+            <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+                <span style="color: var(--primary); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1.5rem;">Our Story</span>
+                <h1 class="fade-in-up" style="animation-delay: 0.1s; font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700;">Built to fix the part of hiring everyone ignores.</h1>
+                <p class="hero-sub fade-in-up" style="animation-delay: 0.2s; margin-left: auto; margin-right: auto; color: var(--text-secondary); font-size: 1.25rem; line-height: 1.6;">
+                    Most recruiting tools are built to track applicants. We built CandidateHub to build relationships with them. There's a difference — and it changes everything about how you hire.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-container">
+                <!-- Left Column -->
+                <div class="story-copy fade-in-up" style="animation-delay: 0.3s;">
+                    <p>Companies were sitting on large pools of candidate data in their ATS systems, job fair lists, and talent communities — yet they had no reliable way to consistently engage those candidates over time. Meanwhile, agencies kept submitting candidates that internal teams already had in their database. The data existed. The relationships didn't.</p>
+                    <p>In sales, marketing automation platforms generate and nurture leads continuously — so sales teams always have someone to talk to. Recruiting had no equivalent. Candidates would express interest, enter a database, and disappear. We set out to build the engagement layer that recruiting was missing.</p>
+                    <p>Recruiting shouldn't start with a job posting. It should start with a relationship. The companies that win on talent aren't the ones with the biggest job boards budget — they're the ones that stay connected to great people before they need them, and convert that connection into hires when the moment is right.</p>
+                </div>
+                
+                <!-- Right Column (Blockquote) -->
+                <div class="story-quote-wrapper fade-in-up" style="animation-delay: 0.4s;">
+                    <blockquote class="story-quote">
+                        The data existed. The relationships didn't. We built CandidateHub to close that gap.
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Believe Section -->
+    <section class="principles-section text-center">
+        <div class="container">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Our principles</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 2rem; font-weight: 700;">How we think about talent engagement.</h2>
+            
+            <div class="principles-grid">
+                <div class="principle-card fade-in-up" style="animation-delay: 0.1s;">
+                    <h4>Relationships beat reactive hiring.</h4>
+                    <p>The best candidates are rarely actively looking. Building relationships before you have a need is the only sustainable recruiting strategy.</p>
+                </div>
+                <div class="principle-card fade-in-up" style="animation-delay: 0.2s;">
+                    <h4>Consent is a competitive advantage.</h4>
+                    <p>We don't scrape. We don't spam. Every interaction on CandidateHub is opt-in and intentional. In a world of data harvesting, that's not just ethical — it's smarter.</p>
+                </div>
+                <div class="principle-card fade-in-up" style="animation-delay: 0.3s;">
+                    <h4>Recruiters deserve leverage.</h4>
+                    <p>Recruiter burnout is a systems problem. When follow-up is automated and workflows run themselves, your team can focus on the conversations that actually move hiring forward.</p>
+                </div>
+                <div class="principle-card fade-in-up" style="animation-delay: 0.4s;">
+                    <h4>Intelligence should be explainable.</h4>
+                    <p>Markis recommends. Your team decides. We believe every AI-driven suggestion should be transparent, grounded in real data, and easy for a human to override.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Team Section -->
+    <section class="team-section text-center">
+        <div class="container">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">The team</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1rem; font-weight: 700;">The people behind CandidateHub.</h2>
+            <p style="color: #4A5568; font-size: 1.125rem; max-width: 800px; margin: 0 auto;">A team with deep roots in recruiting, marketing, and product — united by a belief that hiring should be driven by relationships, not job board spend.</p>
+            
+            <div class="team-grid">
+                <!-- Person 1 -->
+                <div class="team-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="team-photo-wrapper">
+                        <img src="Brad headshot - 2025_Energia_4157.jpg" alt="Brad DiPaolo">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Brad DiPaolo</h4>
+                        <span class="title">Founder & CEO</span>
+                        <p>Brad spent years in the recruitment agency world watching companies spend money finding candidates they already had. That observation became CandidateHub — a platform built to turn existing candidate relationships into hires through intelligent, consent-based engagement.</p>
+                    </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="team-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="team-photo-wrapper">
+                        <img src="Stephen McGrath.jpeg" alt="Stephen McGrath">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Stephen McGrath</h4>
+                        <span class="title">Advisor — Product & Sales</span>
+                        <p>Stephen brings deep expertise in product strategy and go-to-market execution for B2B SaaS. He helps CandidateHub translate market insight into product decisions that actually matter to the teams using them.</p>
+                    </div>
+                </div>
+
+                <!-- Person 3 -->
+                <div class="team-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="team-photo-wrapper">
+                        <img src="James Whitelock New.jpg" alt="James Whitelock">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>James Whitelock</h4>
+                        <span class="title">Marketing Advisor</span>
+                        <p>James brings extensive experience building brand and demand generation programs for growing technology companies. He guides CandidateHub's positioning and messaging strategy.</p>
+                    </div>
+                </div>
+
+                <!-- Person 4 -->
+                <div class="team-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="team-photo-wrapper">
+                        <img src="joel-cheesman-photo.png" alt="Joel Cheesman">
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Joel Cheesman</h4>
+                        <span class="title">Advisor</span>
+                        <p>Joel is one of the most respected voices in the recruiting technology industry. His perspective on the future of talent acquisition has shaped how CandidateHub thinks about the market it's building for.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement CTA -->
+    <section class="mission-cta">
+        <div class="container fade-in-up">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff;">Recruiting should start with a relationship.</h2>
+            <p style="color: #BFDAFF; font-size: 1.125rem; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                We're building the technology that helps organizations stay connected to great talent before, during, and after employment — so that when the moment comes, the relationship is already there.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/demo" class="btn btn-primary btn-large">Book a Demo</a>
+                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF;">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer light-footer" style="background: #ffffff; border-top: 1px solid #e1e4e8;">
+        <div class="container text-dark">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="Logo.png" alt="CandidateHub Logo" class="logo-img" style="height: 24px; width: auto; filter: invert(0.8) brightness(0.2);">
+                        <span class="text-dark" style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; margin-left: 0.5rem;">CandidateHub</span>
+                    </div>
+                    <p class="text-body" style="margin-top:1rem;">The engagement layer your ATS was never designed to provide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="text-dark">Platform</h4>
+                        <a href="/#markis" class="text-body">Markis AI</a>
+                        <a href="/#how-it-works" class="text-body">Features</a>
+                        <a href="/#how-it-works" class="text-body">Integrations</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Company</h4>
+                        <a href="/about" class="text-body">About</a>
+                        <a href="/#careers" class="text-body">Careers</a>
+                        <a href="/#contact" class="text-body">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Resources</h4>
+                        <a href="/#blog" class="text-body">Blog</a>
+                        <a href="/#help" class="text-body">Help Center</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Legal</h4>
+                        <a href="/#privacy" class="text-body">Privacy</a>
+                        <a href="/#terms" class="text-body">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-body">
+                &copy; 2026 CandidateHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
