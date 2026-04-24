@@ -159,33 +159,7 @@
                 <div class="demo-right fade-in-up" style="animation-delay: 0.5s;">
                     <div class="embed-card">
                         <!-- CandidateHub Form Embed -->
-                        <div id="candidatehub-form-e5168bcc-e330-4f59-8df4-80e94f104e20"></div>
-                        <script>
-                          (function() {
-                            var formId = 'e5168bcc-e330-4f59-8df4-80e94f104e20';
-                            var baseUrl = 'https://beta.candidatehub.io/public/form/' + formId;
-                            try {
-                              var visitorId = localStorage.getItem('ch_visitor_id');
-                              if (visitorId && /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(visitorId)) {
-                                baseUrl += (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'ch_vid=' + encodeURIComponent(visitorId);
-                              }
-                            } catch(e) {}
-                            var container = document.getElementById('candidatehub-form-' + formId);
-                            var iframe = document.createElement('iframe');
-                            iframe.src = baseUrl;
-                            iframe.style.width = '100%';
-                            iframe.style.border = 'none';
-                            iframe.style.maxWidth = '800px';
-                            iframe.style.minHeight = '600px';
-                            window.addEventListener('message', function(e) {
-                              if (e.origin !== 'https://beta.candidatehub.io') return;
-                              if (e.data.formId === formId && e.data.height) {
-                                iframe.style.height = e.data.height + 'px';
-                              }
-                            });
-                            container.appendChild(iframe);
-                          })();
-                        </script>
+                        <iframe src="https://beta.candidatehub.io/public/form/e5168bcc-e330-4f59-8df4-80e94f104e20" width="100%" height="600" frameborder="0" style="border: none; max-width: 800px;"></iframe>
                     </div>
                 </div>
             </div>
