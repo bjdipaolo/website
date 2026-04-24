@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple, transparent pricing for growing HR and Talent teams. Start free, automate with Starter, or scale with Pro. No credit card required to get started.">
+    <title>Pricing | CandidateHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        /* Hero */
+        .pricing-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background-color: #040812;
+            text-align: center;
+        }
+        /* Pricing Section */
+        .pricing-section {
+            background-color: #F8F9FB;
+            padding: 6rem 0;
+        }
+        /* Toggle */
+        .pricing-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+        }
+        .toggle-pill-container {
+            display: flex;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 50px;
+            padding: 4px;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: #4A5568;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .toggle-btn.active {
+            background: #2D7BBF;
+            color: #FFFFFF;
+        }
+        .save-badge {
+            background: #EAF3DE;
+            color: #3B6D11;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        /* Cards */
+        .pricing-cards {
+            display: flex;
+            gap: 1.5rem;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .card-plan-name {
+            color: #0D1117;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+        .card-price-block {
+            margin-bottom: 1.5rem;
+            min-height: 5.5rem;
+        }
+        .card-price {
+            color: #0D1117;
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            line-height: 1.1;
+        }
+        .price-mo {
+            color: #94A3B8;
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+        .billed-annually {
+            color: #3B6D11;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: block;
+            min-height: 1.2rem;
+            transition: opacity 0.2s;
+        }
+        .card-best-for {
+            color: #4A5568;
+            font-size: 0.875rem;
+            font-style: italic;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #E2E8F0;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .cta-wrapper {
+            margin-top: auto;
+        }
+        .trial-strip {
+            background: #EAF3DE;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: #3B6D11;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.875rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-free {
+            background: #FFFFFF;
+            color: #2D7BBF;
+            border: 1px solid #2D7BBF;
+        }
+        .btn-free:hover {
+            background: #2D7BBF;
+            color: #FFFFFF;
+        }
+        .btn-starter {
+            background: #F18701;
+            color: #FFFFFF;
+        }
+        .btn-starter:hover {
+            box-shadow: 0 4px 15px rgba(241, 135, 1, 0.4);
+        }
+        .btn-pro {
+            background: #2D7BBF;
+            color: #FFFFFF;
+        }
+        .btn-pro:hover {
+            box-shadow: 0 4px 15px rgba(45, 123, 191, 0.4);
+        }
+        /* Pro Card Elevations */
+        .pricing-card.pro-card {
+            border-top: 3px solid #2D7BBF;
+            position: relative;
+            transform: scale(1.04);
+            padding-top: 2.75rem;
+            padding-bottom: 2.75rem;
+        }
+        .rec-badge {
+            position: absolute;
+            top: -3px;
+            right: -1px;
+            background: #2D7BBF;
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 0 12px 0 8px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 900px) {
+            .pricing-cards {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .pricing-card.pro-card {
+                order: 1;
+                transform: scale(1);
+                padding: 2.5rem 2rem;
+            }
+            .pricing-card.starter-card { order: 2; }
+            .pricing-card.free-card { order: 3; }
+        }
+        /* Features List */
+        .features-heading {
+            color: #0D1117;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0; margin: 0;
+            flex: 1;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.85rem;
+            color: #4A5568;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        .feature-item svg {
+            color: #2D7BBF;
+            flex-shrink: 0;
+            width: 16px; height: 16px;
+            margin-top: 2px;
+        }
+        .free-note {
+            color: #94A3B8;
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+        /* Comparison Table */
+        .compare-section {
+            background: #FFFFFF;
+            padding: 6rem 0;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 3rem;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+        .compare-table {
+            width: 100%;
+            min-width: 700px;
+            border-collapse: collapse;
+        }
+        .compare-table th {
+            background: #F8F9FB;
+            color: #0D1117;
+            font-weight: 600;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #E2E8F0;
+            font-size: 1rem;
+        }
+        .compare-table th:first-child {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+        .compare-table td {
+            padding: 1.25rem 1rem;
+            text-align: center;
+            color: #4A5568;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table td:first-child {
+            text-align: left;
+            padding-left: 1.5rem;
+            color: #0D1117;
+            font-weight: 500;
+        }
+        .compare-table tr:nth-child(even) td {
+            background-color: #FCFDFE;
+        }
+        .check-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: #2D7BBF;
+            background: rgba(45, 123, 191, 0.1);
+            border-radius: 50%;
+            width: 24px; height: 24px;
+        }
+        .check-icon svg {
+            width: 14px; height: 14px;
+        }
+        .dash-icon {
+            color: #D1D5DB;
+            font-weight: 600;
+        }
+        /* FAQ Accordion */
+        .faq-section {
+            background: #EFF2F6;
+            padding: 6rem 0;
+        }
+        .faq-wrapper {
+            max-width: 760px;
+            margin: 3rem auto 0;
+        }
+        .faq-item {
+            background: #FFFFFF;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-button {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0D1117;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            color: #2D7BBF;
+            font-weight: 400;
+            line-height: 1;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer-inner {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: #4A5568;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        /* Final CTA */
+        .pricing-final-cta {
+            background-color: #0A1929;
+            padding: 6rem 0;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header glass-panel">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="Logo.png" alt="CandidateHub Logo" class="logo-img">
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="/#problem">The Problem</a>
+                <a href="/markis">Markis AI</a>
+                <a href="/platform">Platform</a>
+                <a href="/#outcomes">Outcomes</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/trial" class="btn btn-secondary nav-btn-trial" style="margin-right: 0.5rem; background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
+                <a href="/demo" class="btn btn-primary">Book a Demo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation" style="display: none;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container relative z-10 text-center">
+            <span style="color: var(--primary); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1.5rem;">Pricing</span>
+            <h1 class="fade-in-up" style="animation-delay: 0.1s; font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; color: #fff;">Simple pricing for teams ready to hire smarter.</h1>
+            <p class="fade-in-up" style="animation-delay: 0.2s; max-width: 650px; margin: 0 auto; color: #BFDAFF; font-size: 1.25rem; line-height: 1.6;">
+                Start free. Upgrade when you're ready. No credit card required to get started.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers Section -->
+    <section class="pricing-section">
+        <div class="container text-center">
+            <!-- Toggle -->
+            <div class="pricing-toggle-wrapper fade-in-up" style="animation-delay: 0.3s;">
+                <div class="toggle-pill-container">
+                    <button class="toggle-btn" data-type="monthly">Monthly</button>
+                    <button class="toggle-btn active" data-type="annual">Annual</button>
+                </div>
+                <div class="save-badge">Save 2 months</div>
+            </div>
+
+            <!-- Cards -->
+            <div class="pricing-cards">
+                
+                <!-- Free Card -->
+                <div class="pricing-card free-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="card-plan-name">Free</div>
+                    <div class="card-price-block">
+                        <div class="card-price">$0 <span class="price-mo">forever</span></div>
+                    </div>
+                    <div class="card-best-for">
+                        Best for: Individual recruiters and HR generalists who want to plan and brainstorm.
+                    </div>
+                    <div class="features-heading">Feature list</div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Access to Markis AI
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Saved chat history and plans
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Unlimited follow-up questions
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Brainstorm nurturing campaigns
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Generate hiring plans and email drafts
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            3–5 new plans per month
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            1 user
+                        </li>
+                    </ul>
+                    <div class="free-note">No contact storage, integrations, or workflow execution on the Free plan.</div>
+                    
+                    <div class="cta-wrapper">
+                        <a href="https://beta.candidatehub.io" class="pricing-btn btn-free">Get Started Free</a>
+                    </div>
+                </div>
+
+                <!-- Starter Card -->
+                <div class="pricing-card starter-card fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="card-plan-name">Starter</div>
+                    <div class="card-price-block">
+                        <div class="card-price"><span id="starter-price">$417</span> <span class="price-mo">/mo</span></div>
+                        <span class="billed-annually" id="starter-note">Billed annually as $5,000</span>
+                    </div>
+                    <div class="card-best-for">
+                        Best for: Lean HR and Talent teams automating follow-up and managing candidate engagement.
+                    </div>
+                    <div class="features-heading">Everything in Free, plus:</div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Up to 3 users
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Candidate and contact storage (up to 5,000)
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Talent pools and candidate lists
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Automated follow-up campaigns
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Workflow builder
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Email and SMS templates
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Candidate engagement tracking
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Basic reporting dashboard
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            1 ATS integration
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Up to 5 active campaigns
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Shared team workspace
+                        </li>
+                    </ul>
+
+                    <div class="cta-wrapper">
+                        <div class="trial-strip">14-day free trial &middot; No credit card required</div>
+                        <a href="https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01" id="starter-btn" class="pricing-btn btn-starter">Start Free Trial</a>
+                    </div>
+                </div>
+
+                <!-- Pro Card -->
+                <div class="pricing-card pro-card fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="rec-badge">Recommended</div>
+                    <div class="card-plan-name">Pro</div>
+                    <div class="card-price-block">
+                        <div class="card-price"><span id="pro-price">$833</span> <span class="price-mo">/mo</span></div>
+                        <span class="billed-annually" id="pro-note">Billed annually as $10,000</span>
+                    </div>
+                    <div class="card-best-for">
+                        Best for: Growing HR and Talent teams that need broader automation, deeper integrations, and operational scale.
+                    </div>
+                    <div class="features-heading">Everything in Starter, plus:</div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Up to 10 users
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Up to 25,000 contacts and candidates
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Unlimited campaigns
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Multiple ATS integrations
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            HRIS integrations
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Internal mobility workflows
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Employee engagement workflows
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Advanced workflow builder
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Approval flows and reminders
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Role-based permissions
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Multi-location and multi-team support
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Advanced reporting and executive dashboards
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            API access
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Priority support and dedicated onboarding
+                        </li>
+                    </ul>
+
+                    <div class="cta-wrapper">
+                        <a href="https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02" id="pro-btn" class="pricing-btn btn-pro">Get Started with Pro</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="compare-section">
+        <div class="container fade-in-up">
+            <div class="text-center">
+                <span class="eyebrow" style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Compare plans</span>
+                <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1rem; font-weight: 700;">Everything side by side.</h2>
+            </div>
+            
+            <div class="table-responsive" style="max-width: 900px; margin: 3rem auto 0;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free</th>
+                            <th>Starter</th>
+                            <th>Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Users</td>
+                            <td>1</td>
+                            <td>Up to 3</td>
+                            <td>Up to 10</td>
+                        </tr>
+                        <tr>
+                            <td>Saved plans and chat history</td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Candidate storage</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td>Up to 5,000</td>
+                            <td>Up to 25,000</td>
+                        </tr>
+                        <tr>
+                            <td>ATS integration</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td>1</td>
+                            <td>Multiple</td>
+                        </tr>
+                        <tr>
+                            <td>Workflow builder</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td>Yes</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Automated follow-up</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Active campaigns</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td>Up to 5</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Reporting</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Team collaboration</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>HRIS integrations</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Internal mobility workflows</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>API access</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Priority support</td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><span class="dash-icon">&ndash;</span></td>
+                            <td><div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Best for</td>
+                            <td>Planning</td>
+                            <td>Execution</td>
+                            <td>Scale</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container fade-in-up">
+            <div class="text-center">
+                <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Common questions</span>
+                <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1rem; font-weight: 700;">Pricing FAQ</h2>
+            </div>
+            
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-button">
+                        Can I try CandidateHub before paying?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. The Free plan is free forever with no credit card required. The Starter plan also comes with a 14-day free trial — again, no credit card needed. You can explore the full Starter feature set before committing.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-button">
+                        What happens when I hit my contact or campaign limits on Starter?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            You'll be notified when you're approaching your limits. You won't lose any data — you'll just need to upgrade to Pro to continue adding contacts or launching new campaigns beyond the Starter limits.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-button">
+                        Does CandidateHub work with my existing ATS?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. CandidateHub is designed to sit on top of your existing ATS, not replace it. Starter includes one ATS integration and Pro includes multiple. We support Workday, Greenhouse, ADP, iCIMS, BambooHR, and more.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-button">
+                        Can I switch between monthly and annual billing?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. You can switch to annual billing at any time to lock in the lower rate. If you switch mid-cycle, we'll prorate the difference. Contact us if you need help with a billing change.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-button">
+                        What if I need something beyond Pro?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            If you're running a larger or more complex operation and need custom user counts, enterprise integrations, or a dedicated implementation, get in touch. We'll put together a plan that fits.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="pricing-final-cta">
+        <div class="container fade-in-up">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff;">Not sure which plan is right for you?</h2>
+            <p style="color: #BFDAFF; font-size: 1.125rem; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                Book a 30-minute demo and we'll help you figure out exactly what you need — no pressure, no hard sell.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/demo" class="btn btn-primary btn-large">Book a Demo</a>
+                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF;">Start Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer light-footer" style="background: #ffffff; border-top: 1px solid #e1e4e8;">
+        <div class="container text-dark">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="Logo.png" alt="CandidateHub Logo" class="logo-img" style="height: 24px; width: auto; filter: invert(0.8) brightness(0.2);">
+                        <span class="text-dark" style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; margin-left: 0.5rem;">CandidateHub</span>
+                    </div>
+                    <p class="text-body" style="margin-top:1rem;">The engagement layer your ATS was never designed to provide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="text-dark">Platform</h4>
+                        <a href="/markis" class="text-body">Markis AI</a>
+                        <a href="/platform" class="text-body">Platform</a>
+                        <a href="/#how-it-works" class="text-body">Integrations</a>
+                        <a href="/pricing" class="text-body">Pricing</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Company</h4>
+                        <a href="/about" class="text-body">About</a>
+                        <a href="/#careers" class="text-body">Careers</a>
+                        <a href="/#contact" class="text-body">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Resources</h4>
+                        <a href="/#blog" class="text-body">Blog</a>
+                        <a href="/#help" class="text-body">Help Center</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Legal</h4>
+                        <a href="/#privacy" class="text-body">Privacy</a>
+                        <a href="/#terms" class="text-body">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-body">
+                &copy; 2026 CandidateHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script>
+        // JS for pricing toggle
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const plans = {
+            starter: {
+                el: document.getElementById('starter-price'),
+                note: document.getElementById('starter-note'),
+                btn: document.getElementById('starter-btn'),
+                month: '499',
+                annual: '417',
+                annualNote: 'Billed annually as $5,000',
+                linkMonth: 'https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01',
+                linkAnnual: 'https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01' // TODO: replace with annual Stripe link when available
+            },
+            pro: {
+                el: document.getElementById('pro-price'),
+                note: document.getElementById('pro-note'),
+                btn: document.getElementById('pro-btn'),
+                month: '999',
+                annual: '833',
+                annualNote: 'Billed annually as $10,000',
+                linkMonth: 'https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02',
+                linkAnnual: 'https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02' // TODO: replace with annual Stripe link when available
+            }
+        };
+
+        function setPlanType(type) {
+            // Toggle UI state
+            toggleBtns.forEach(btn => {
+                if(btn.dataset.type === type) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update DOM
+            if (type === 'annual') {
+                plans.starter.el.textContent = '$' + plans.starter.annual;
+                plans.starter.note.textContent = plans.starter.annualNote;
+                plans.starter.note.style.opacity = '1';
+                plans.starter.btn.href = plans.starter.linkAnnual;
+                
+                plans.pro.el.textContent = '$' + plans.pro.annual;
+                plans.pro.note.textContent = plans.pro.annualNote;
+                plans.pro.note.style.opacity = '1';
+                plans.pro.btn.href = plans.pro.linkAnnual;
+            } else {
+                plans.starter.el.textContent = '$' + plans.starter.month;
+                plans.starter.note.style.opacity = '0';
+                plans.starter.btn.href = plans.starter.linkMonth;
+                
+                plans.pro.el.textContent = '$' + plans.pro.month;
+                plans.pro.note.style.opacity = '0';
+                plans.pro.btn.href = plans.pro.linkMonth;
+            }
+        }
+
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => setPlanType(btn.dataset.type));
+        });
+
+        // Initialize correctly
+        setPlanType('annual');
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-button');
+            const answer = item.querySelector('.faq-answer');
+            const icon = btn.querySelector('.faq-icon');
+            
+            btn.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                
+                // Close all others
+                faqItems.forEach(other => {
+                    other.classList.remove('open');
+                    other.querySelector('.faq-answer').style.maxHeight = null;
+                    other.querySelector('.faq-icon').textContent = '+';
+                });
+                
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.innerHTML = '&times;';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

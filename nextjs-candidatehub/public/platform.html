@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CandidateHub is the Talent Nurturing Engine™ for growing HR teams. Explore the platform — candidate engagement, Markis AI, multi-channel campaigns, workforce intelligence, and the full talent OS roadmap.">
+    <title>Platform | CandidateHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* Hero Section */
+        .platform-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background-color: #040812;
+            text-align: center;
+        }
+        .hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        .hero-pill {
+            background: transparent;
+            border: 1px solid rgba(191, 218, 255, 0.4);
+            color: #FFFFFF;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        .hero-pill:hover {
+            background: rgba(191, 218, 255, 0.1);
+            border-color: #BFDAFF;
+        }
+
+        /* Metric Strip Section */
+        .metric-strip {
+            background: #FFFFFF;
+            padding: 4.5rem 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .metric-cards {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .metric-card {
+            background: #F8F9FB;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+        }
+        .metric-stat {
+            color: #2D7BBF;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .metric-label {
+            color: #4A5568;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        /* Feature Sections Base */
+        .feature-section { padding: 6rem 0; }
+        .feature-section.light-grey { background: #EFF2F6; }
+        .feature-section.white { background: #FFFFFF; }
+        .feature-section.dark { background: #0A1929; color: #FFFFFF; }
+        
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .feature-col-text { flex: 1; text-align: left; }
+        .feature-col-img { flex: 1; display: flex; justify-content: center; }
+        
+        .feature-row.reverse { flex-direction: row-reverse; }
+
+        @media (max-width: 900px) {
+            .feature-row, .feature-row.reverse {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .feature-row .feature-col-text, .feature-row.reverse .feature-col-text { order: 1; }
+            .feature-row .feature-col-img, .feature-row.reverse .feature-col-img { order: 2; width: 100%; }
+        }
+
+        .feature-img {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .feature-img.dark-shadow { box-shadow: 0 8px 40px rgba(0,0,0,0.3); }
+        
+        .feature-bullets { list-style: none; padding: 0; margin: 2.5rem 0 0; }
+        .feature-bullets li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        .feature-bullets.light-text li { color: #4A5568; }
+        .feature-bullets.light-text li strong { color: #0D1117; font-weight: 600; }
+        .feature-bullets.light-text li::before {
+            content: ''; position: absolute; left: 0; top: 0.5rem;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #2D7BBF;
+        }
+        
+        .feature-bullets.dark-text li { color: #BFDAFF; }
+        .feature-bullets.dark-text li strong { color: #FFFFFF; font-weight: 600; }
+        .feature-bullets.dark-text li::before {
+            content: ''; position: absolute; left: 0; top: 0.5rem;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #BFDAFF;
+        }
+
+        /* Mockup Card (Content Studio) */
+        .mockup-card {
+            background: #0A1929;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 380px;
+        }
+        .mockup-card h4 {
+            color: #FFFFFF; font-size: 2rem; font-weight: 600; margin-bottom: 1rem;
+        }
+        .mockup-card p {
+            color: #BFDAFF; font-size: 1.2rem; margin: 0; line-height: 1.5;
+        }
+
+        /* Integrations section */
+        .integrations-wrapper { background: #FFFFFF; padding: 6rem 0; text-align: center; }
+        .int-group { margin-bottom: 1.5rem; }
+        .int-label {
+            color: #2D7BBF; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px;
+        }
+        .int-pills {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+        }
+        .int-pill {
+            background: #F1EFE8; border: 1px solid #D3D1C7; border-radius: 20px;
+            padding: 6px 16px; font-size: 0.875rem; color: #444441;
+        }
+
+        /* Comparison section */
+        .compare-section { background: #EFF2F6; padding: 6rem 0; text-align: center; }
+        .comp-cards {
+            display: flex; justify-content: center; align-items: stretch; gap: 1.5rem;
+            max-width: 860px; margin: 3rem auto 0;
+        }
+        .comp-card {
+            background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px;
+            padding: 2.5rem 1.5rem; flex: 1; text-align: left; position: relative;
+            display: flex; flex-direction: column;
+        }
+        .comp-card.elevated {
+            border-top: 3px solid #2D7BBF; box-shadow: 0 4px 20px rgba(45, 123, 191, 0.12);
+            transform: scale(1.03); padding-top: 2.75rem; padding-bottom: 2.75rem;
+        }
+        .comp-title { font-size: 1.25rem; font-weight: 700; color: #0D1117; margin-bottom: 0.25rem; }
+        .comp-subtitle { font-size: 0.875rem; margin-bottom: 2rem; }
+        .comp-subtitle.grey { color: #94A3B8; }
+        .comp-subtitle.blue { color: #2D7BBF; font-weight: 600; }
+        .comp-list { list-style: none; padding: 0; margin: 0; }
+        .comp-item {
+            display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;
+            font-size: 0.875rem; color: #4A5568; line-height: 1.4;
+        }
+        .comp-item svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; }
+        .icon-check { color: #2D7BBF; }
+        .icon-x { color: #D1D5DB; }
+        .comp-badge {
+            position: absolute; top: -12px; right: 1.5rem; background: #2D7BBF;
+            color: white; font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .comp-cards { flex-direction: column; gap: 2rem; }
+            .comp-card.elevated { order: -1; transform: scale(1); padding: 2.5rem 1.5rem; }
+        }
+
+        /* Final CTA */
+        .platform-final-cta { background-color: #0A1929; padding: 6rem 0; text-align: center; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header glass-panel">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="Logo.png" alt="CandidateHub Logo" class="logo-img">
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="/#problem">The Problem</a>
+                <a href="/markis">Markis AI</a>
+                <a href="/platform">Platform</a>
+                <a href="/#outcomes">Outcomes</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/trial" class="btn btn-secondary nav-btn-trial" style="margin-right: 0.5rem; background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
+                <a href="/demo" class="btn btn-primary">Book a Demo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation" style="display: none;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="platform-hero">
+        <div class="container relative z-10 text-center">
+            <span style="color: var(--primary); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1.5rem;">The Platform</span>
+            <h1 class="fade-in-up" style="animation-delay: 0.1s; font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; color: #fff;">The Talent Nurturing Engine™ for modern HR teams.</h1>
+            <p class="fade-in-up" style="animation-delay: 0.2s; max-width: 660px; margin: 0 auto; color: #BFDAFF; font-size: 1.25rem; line-height: 1.6;">
+                CandidateHub brings candidate engagement, Markis intelligence, multi-channel campaigns, and workforce analytics into one system — sitting on top of your existing ATS and growing with your team.
+            </p>
+            
+            <div class="hero-pills fade-in-up" style="animation-delay: 0.3s;">
+                <a href="#candidate-engagement" class="hero-pill">Candidate Engagement</a>
+                <a href="#markis-ai" class="hero-pill">Markis AI</a>
+                <a href="#campaigns-content" class="hero-pill">Campaigns & Content</a>
+                <a href="#talent-management" class="hero-pill">Talent Management</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metric Strip Section -->
+    <section class="metric-strip">
+        <div class="container fade-in-up">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-stat" style="font-size: 2rem;">5</div>
+                    <div class="metric-label">core modules</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-stat" style="font-size: 2rem;">8</div>
+                    <div class="metric-label">Markis AI roles</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-stat" style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">Multi-channel</div>
+                    <div class="metric-label">email, SMS, social, landing pages</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-stat" style="font-size: 2rem;">1-day</div>
+                    <div class="metric-label">average setup time</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-stat" style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">ATS-ready</div>
+                    <div class="metric-label">works with your existing stack</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Candidate Engagement -->
+    <section id="candidate-engagement" class="feature-section light-grey">
+        <div class="container" style="max-width: 1100px;">
+            <div class="feature-row">
+                <div class="feature-col-text fade-in-up" style="animation-delay: 0.1s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Candidate engagement</span>
+                    <h2 style="color: #0D1117; font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Turn interest into hires through structured engagement.</h2>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">Most candidates don't convert because follow-up breaks down. CandidateHub gives your team the pipelines, journeys, and automation to keep every candidate moving — from first touch to offer — without adding hours to your week.</p>
+                    <ul class="feature-bullets light-text">
+                        <li><strong>Candidate pipelines</strong> — Visual pipeline views showing exactly where every candidate stands across every role.</li>
+                        <li><strong>Talent pools</strong> — Segment and store candidates by role, location, skill, or status. Build pools before you need them.</li>
+                        <li><strong>Automated follow-up</strong> — Set up trigger-based sequences so no candidate goes cold while your team is focused elsewhere.</li>
+                        <li><strong>Candidate engagement tracking</strong> — See open rates, response rates, and engagement scores across every outreach.</li>
+                    </ul>
+                </div>
+                <div class="feature-col-img fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="Journey-Builder.png" alt="Candidate Journey Pipeline" class="feature-img" style="max-width: 540px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Markis AI -->
+    <section id="markis-ai" class="feature-section white">
+        <div class="container" style="max-width: 1100px;">
+            <div class="feature-row reverse">
+                <div class="feature-col-text fade-in-up" style="animation-delay: 0.1s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Markis AI</span>
+                    <h2 style="color: #0D1117; font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Your embedded intelligence layer.</h2>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">Markis watches signals, recommends next best actions, drafts communications, scores requisitions, and builds campaign blueprints — all from inside CandidateHub. It's not a chatbot bolted on. It's intelligence woven through every part of the platform.</p>
+                    <ul class="feature-bullets light-text">
+                        <li><strong>Requisition scoring</strong> — Markis reviews every job posting and flags gaps before it goes live.</li>
+                        <li><strong>Journey blueprints</strong> — Describe your campaign and Markis designs the full multi-step sequence.</li>
+                        <li><strong>Signal monitoring</strong> — Markis watches candidate and employee engagement and surfaces what needs attention.</li>
+                        <li><strong>Draft generation</strong> — Emails, SMS messages, and content drafted on demand — reviewed and sent by your team.</li>
+                    </ul>
+                    <div style="color: #4A5568; font-size: 0.875rem; font-style: italic; margin-top: 1.5rem; margin-bottom: 1rem;">
+                        Markis recommends. Your team decides. Every action requires human approval.
+                    </div>
+                    <a href="/markis" style="color: #2D7BBF; font-weight: 600; text-decoration: none; font-size: 0.95rem;">Learn more about Markis &rarr;</a>
+                </div>
+                <div class="feature-col-img fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="Markis-Welcome-Screen.png" alt="Markis Intelligence Layer" class="feature-img" style="max-width: 520px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Campaigns & Content -->
+    <section id="campaigns-content" class="feature-section light-grey">
+        <div class="container" style="max-width: 1100px;">
+            <div class="feature-row">
+                <div class="feature-col-text fade-in-up" style="animation-delay: 0.1s;">
+                    <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.75rem;">Campaigns & content</span>
+                    <h2 style="color: #0D1117; font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">Multi-channel campaigns that actually get sent.</h2>
+                    <p style="color: #4A5568; font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">CandidateHub's Content Studio and Campaign Manager give your team everything needed to build, launch, and track engagement campaigns — across email, SMS, social, landing pages, and more. Markis helps you build the content. You approve and launch.</p>
+                    <ul class="feature-bullets light-text">
+                        <li><strong>Content Studio</strong> — Create and manage email, SMS, social posts, landing pages, and popups in one place.</li>
+                        <li><strong>Campaign Manager</strong> — Build multi-channel nurture campaigns with goals, audiences, and asset tracking.</li>
+                        <li><strong>Template library</strong> — Reusable templates for every stage of the candidate and employee journey.</li>
+                        <li><strong>LinkedIn import</strong> — Import content directly from LinkedIn to repurpose across channels.</li>
+                        <li><strong>Approval workflows</strong> — Content moves through review and approval before anything goes out.</li>
+                    </ul>
+                </div>
+                <div class="feature-col-img fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="content-studio.png" alt="Content Studio Interface" class="feature-img" style="max-width: 540px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Talent Management / Coming Soon -->
+    <section id="talent-management" class="feature-section dark">
+        <div class="container" style="max-width: 1100px;">
+            <div class="text-center" style="max-width: 760px; margin: 0 auto 5rem;">
+                <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Coming soon</span>
+                <h2 style="font-size: 2.5rem; color: #FFFFFF; margin-bottom: 1.5rem; font-weight: 700;">CandidateHub is becoming the full Talent OS.</h2>
+                <p style="color: #BFDAFF; font-size: 1.125rem; line-height: 1.6; margin: 0 auto;">
+                    The engagement layer is just the beginning. CandidateHub is building the post-hire infrastructure that connects candidate engagement to employee development, retention, internal mobility, and workforce planning — all in one place.
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-col-text fade-in-up" style="animation-delay: 0.1s;">
+                    <span style="color: var(--primary); font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">In early access with pilot customers</span>
+                    <ul class="feature-bullets dark-text">
+                        <li><strong>Employee talent records</strong> — A unified record for every employee covering performance, retention risk, certifications, training, promotion readiness, and manager notes — all in one place.</li>
+                        <li><strong>Manager updates via email</strong> — Managers update employee records by sending a simple email. Markis reads it, extracts the relevant information, and updates the record automatically. No extra logins required.</li>
+                        <li><strong>Retention risk scoring</strong> — Markis monitors engagement and performance signals to surface flight risks before they become departures.</li>
+                        <li><strong>Internal mobility workflows</strong> — Match employees to open roles based on skills, readiness scores, and career goals. Promote from within before you post externally.</li>
+                    </ul>
+                    <div style="border: 1px solid rgba(191, 218, 255, 0.2); border-radius: 12px; padding: 1.25rem 1.5rem; background: rgba(45, 123, 191, 0.08); margin-top: 2.5rem;">
+                        <p style="color: #BFDAFF; font-size: 0.875rem; margin: 0; line-height: 1.5;">Currently in beta with select pilot customers. If you're interested in early access, mention it when you book your demo.</p>
+                    </div>
+                </div>
+                <div class="feature-col-img fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="internal-talent.png" alt="Internal Talent Overview" class="feature-img dark-shadow" style="max-width: 580px; background: #FFF;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations-wrapper">
+        <div class="container fade-in-up" style="max-width: 860px;">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">Integrations</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 1.5rem; font-weight: 700;">Works with the tools you already use.</h2>
+            <p style="color: #4A5568; font-size: 1.125rem; line-height: 1.6; margin: 0 auto 3rem;">
+                CandidateHub sits on top of your existing ATS and connects to your HRIS — no rip and replace, no migration project. Starter includes one ATS integration. Pro includes multiple ATS and HRIS connections.
+            </p>
+            
+            <div class="int-group">
+                <div class="int-label">ATS Integrations</div>
+                <div class="int-pills">
+                    <div class="int-pill">Workday</div>
+                    <div class="int-pill">Greenhouse</div>
+                    <div class="int-pill">ADP</div>
+                    <div class="int-pill">iCIMS</div>
+                    <div class="int-pill">BambooHR</div>
+                    <div class="int-pill">Lever</div>
+                    <div class="int-pill">Jazz HR</div>
+                    <div class="int-pill">Bullhorn</div>
+                </div>
+            </div>
+            
+            <div class="int-group" style="margin-top: 2rem;">
+                <div class="int-label">HRIS Integrations</div>
+                <div class="int-pills">
+                    <div class="int-pill">ADP Workforce Now</div>
+                    <div class="int-pill">BambooHR</div>
+                    <div class="int-pill">Workday HCM</div>
+                    <div class="int-pill">UKG</div>
+                    <div class="int-pill">Paylocity</div>
+                    <div class="int-pill">Ceridian Dayforce</div>
+                </div>
+            </div>
+
+            <p style="color: #94A3B8; font-size: 0.8rem; margin-top: 3rem; text-align: center;">
+                Don't see your system? <a href="/contact" style="color: #2D7BBF; text-decoration: none;">Get in touch</a> — we're adding integrations regularly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Platform Comparison -->
+    <section class="compare-section">
+        <div class="container fade-in-up">
+            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1rem;">How we fit</span>
+            <h2 style="font-size: 2.5rem; color: #0D1117; margin-bottom: 2rem; font-weight: 700;">CandidateHub vs. the alternatives.</h2>
+            
+            <div class="comp-cards">
+                <!-- Card 1 -->
+                <div class="comp-card">
+                    <div class="comp-title">Your ATS</div>
+                    <div class="comp-subtitle grey">System of record</div>
+                    <ul class="comp-list">
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-x"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Candidate engagement</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-x"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Automated nurturing</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-x"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Markis intelligence</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Applicant tracking</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="comp-card elevated">
+                    <div class="comp-badge">That's us</div>
+                    <div class="comp-title">CandidateHub</div>
+                    <div class="comp-subtitle blue">System of engagement + intelligence</div>
+                    <ul class="comp-list">
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Candidate engagement</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Automated nurturing</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Markis intelligence</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Applicant tracking (via ATS sync)</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Talent management (early access)</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="comp-card">
+                    <div class="comp-title">Generic CRM</div>
+                    <div class="comp-subtitle grey">Contact database</div>
+                    <ul class="comp-list">
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contact storage</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Basic email</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-check"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pipeline views</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-x"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> AI intelligence</li>
+                        <li class="comp-item"><svg viewBox="0 0 24 24" fill="none" class="icon-x"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Recruiting-specific workflows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="platform-final-cta">
+        <div class="container fade-in-up">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff;">Ready to see the full platform?</h2>
+            <p style="color: #BFDAFF; font-size: 1.125rem; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                Book a 30-minute demo and we'll walk you through everything — from candidate engagement to Markis AI to what's coming next on the talent OS roadmap.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/demo" class="btn btn-primary btn-large" style="background: var(--cta-orange); font-size: 1.1rem; padding: 1.1rem 2.8rem; box-shadow: 0 4px 15px rgba(241, 135, 1, 0.4); text-decoration: none;">Book a Demo</a>
+                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF; font-size: 1.1rem; padding: 1.1rem 2.8rem; text-decoration: none;">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer light-footer" style="background: #ffffff; border-top: 1px solid #e1e4e8;">
+        <div class="container text-dark">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="Logo.png" alt="CandidateHub Logo" class="logo-img" style="height: 24px; width: auto; filter: invert(0.8) brightness(0.2);">
+                        <span class="text-dark" style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; margin-left: 0.5rem;">CandidateHub</span>
+                    </div>
+                    <p class="text-body" style="margin-top:1rem;">The engagement layer your ATS was never designed to provide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="text-dark">Platform</h4>
+                        <a href="/markis" class="text-body">Markis AI</a>
+                        <a href="/platform" class="text-body">Platform</a>
+                        <a href="/#how-it-works" class="text-body">Integrations</a>
+                        <a href="/pricing" class="text-body">Pricing</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Company</h4>
+                        <a href="/about" class="text-body">About</a>
+                        <a href="/#careers" class="text-body">Careers</a>
+                        <a href="/#contact" class="text-body">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Resources</h4>
+                        <a href="/#blog" class="text-body">Blog</a>
+                        <a href="/#help" class="text-body">Help Center</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Legal</h4>
+                        <a href="/#privacy" class="text-body">Privacy</a>
+                        <a href="/#terms" class="text-body">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-body">
+                &copy; 2026 CandidateHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
