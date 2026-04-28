@@ -115,6 +115,7 @@ export default function AnimatedPage({ data }: { data: HomepageData }) {
             <Link href="/platform">Platform</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/about">About</Link>
+            <Link href="/insights">Insights</Link>
             <Link href="/contact">Contact</Link>
           </nav>
           <div className="header-actions">
@@ -452,7 +453,7 @@ export default function AnimatedPage({ data }: { data: HomepageData }) {
               </div>
               <div className="link-group">
                 <h4 className="text-dark">Resources</h4>
-                <Link href="#blog" className="text-body">Blog</Link>
+                <Link href="/insights" className="text-body">Insights</Link>
                 <Link href="#help" className="text-body">Help Center</Link>
               </div>
               <div className="link-group">
