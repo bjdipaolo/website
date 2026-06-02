@@ -521,7 +521,7 @@
 
                     <div class="cta-wrapper">
                         <div class="trial-strip">14-day free trial &middot; No credit card required</div>
-                        <a href="https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01" id="starter-btn" class="pricing-btn btn-starter">Start Free Trial</a>
+                        <a href="/checkout?plan=starter&billing=annual" id="starter-btn" class="pricing-btn btn-starter">Start Free Trial</a>
                     </div>
                 </div>
 
@@ -597,7 +597,7 @@
                     </ul>
 
                     <div class="cta-wrapper">
-                        <a href="https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02" id="pro-btn" class="pricing-btn btn-pro">Get Started with Pro</a>
+                        <a href="/checkout?plan=pro&billing=annual" id="pro-btn" class="pricing-btn btn-pro">Get Started with Pro</a>
                     </div>
                 </div>
 
@@ -850,8 +850,8 @@
                 month: '499',
                 annual: '417',
                 annualNote: 'Billed annually as $5,000',
-                linkMonth: 'https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01',
-                linkAnnual: 'https://buy.stripe.com/bJe6oJ8jg9MxaFD5rnfQI01' // TODO: replace with annual Stripe link when available
+                linkMonth: '/checkout?plan=starter&billing=monthly',
+                linkAnnual: '/checkout?plan=starter&billing=annual'
             },
             pro: {
                 el: document.getElementById('pro-price'),
@@ -860,8 +860,8 @@
                 month: '999',
                 annual: '833',
                 annualNote: 'Billed annually as $10,000',
-                linkMonth: 'https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02',
-                linkAnnual: 'https://buy.stripe.com/bJe4gB7fc5wh4hfdXTfQI02' // TODO: replace with annual Stripe link when available
+                linkMonth: '/checkout?plan=pro&billing=monthly',
+                linkAnnual: '/checkout?plan=pro&billing=annual'
             }
         };
 

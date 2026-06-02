@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure checkout for CandidateHub. Choose your plan and start automating your candidate engagement pipelines today.">
+    <title>Secure Checkout | CandidateHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hero / Main Layout */
+        .checkout-container {
+            max-width: 1100px;
+            margin: 140px auto 80px;
+            padding: 0 2rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                margin-top: 120px;
+                margin-bottom: 40px;
+            }
+            .checkout-summary-col {
+                order: 2;
+            }
+            .checkout-form-col {
+                order: 1;
+            }
+        }
+
+        /* Summary Column Styles */
+        .checkout-summary-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .checkout-eyebrow {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .checkout-summary-col h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-summary-col p.lead {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .checkout-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .checkout-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .checkout-feature-item svg {
+            color: var(--primary);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkout-testimonial {
+            border-top: 1px solid var(--border-glass);
+            padding-top: 2rem;
+            margin-top: auto;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        /* Checkout Form Panel */
+        .checkout-form-panel {
+            padding: 2.5rem;
+            background: rgba(10, 17, 31, 0.6);
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-radius: 16px;
+        }
+
+        .form-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        /* Cycle Selector Radio Cards */
+        .cycle-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cycle-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .cycle-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(191, 218, 255, 0.3);
+        }
+
+        .cycle-card.selected {
+            background: rgba(45, 123, 191, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(45, 123, 191, 0.2);
+        }
+
+        .cycle-card-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cycle-radio-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .cycle-card.selected .cycle-radio-indicator {
+            border-color: var(--primary);
+        }
+
+        .cycle-card.selected .cycle-radio-indicator::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        .cycle-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cycle-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .cycle-billing-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .cycle-card-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .cycle-price {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .cycle-price span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .cycle-save-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Email Input Group */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            padding: 0.875rem 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #ffffff;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(45, 123, 191, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .input-error-msg {
+            color: #EF4444;
+            font-size: 0.825rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .input-note {
+            font-size: 0.8rem;
+            color: rgba(191, 218, 255, 0.5);
+            margin-top: 0.5rem;
+        }
+
+        /* Order Summary Table */
+        .order-summary-box {
+            border-top: 1px solid var(--border-glass);
+            padding-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid rgba(191, 218, 255, 0.1);
+            padding-top: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        /* Checkout Actions */
+        .checkout-btn {
+            width: 100%;
+            background: var(--cta-orange);
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(241, 135, 1, 0.3);
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            box-shadow: 0 6px 20px rgba(241, 135, 1, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .checkout-btn:active {
+            transform: translateY(0);
+        }
+
+        .checkout-btn:disabled {
+            background: rgba(241, 135, 1, 0.5);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Security Badges */
+        .checkout-security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(191, 218, 255, 0.4);
+            font-size: 0.8rem;
+            margin-top: 1.25rem;
+        }
+
+        .checkout-security svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .checkout-footer-notes {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(191, 218, 255, 0.4);
+        }
+
+        .checkout-footer-notes a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .checkout-footer-notes a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header glass-panel">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="Logo.png" alt="CandidateHub Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="header-actions">
+                <a href="/pricing" style="color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: var(--transition);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Pricing
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Background Orbs -->
+    <div class="orb-container" style="position: fixed;">
+        <div class="living-orb layer-1" style="top: -20%; left: -20%;"></div>
+        <div class="living-orb layer-2" style="bottom: -20%; right: -20%;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="checkout-container">
+        
+        <!-- Left Column: Summary -->
+        <section class="checkout-summary-col">
+            <span class="checkout-eyebrow">Checkout</span>
+            <h1 id="checkout-heading">Activate your workspace.</h1>
+            <p class="lead" id="checkout-lead">Nurture candidates and run automations. Set up in under a day alongside your current ATS.</p>
+            
+            <ul class="checkout-features-list" id="checkout-features">
+                <!-- Populated dynamically via JS -->
+            </ul>
+
+            <div class="checkout-testimonial">
+                <p class="testimonial-text">"CandidateHub helped us automate follow-ups for our seasonal hiring spikes. We saw a 3x increase in candidate response rates within weeks."</p>
+                <div class="testimonial-author">&mdash; Talent Acquisition Lead, Frontier Retail Group</div>
+            </div>
+        </section>
+
+        <!-- Right Column: Checkout Form -->
+        <section class="checkout-form-col">
+            <div class="checkout-form-panel">
+                
+                <h3 class="form-section-title">1. Choose Billing Cycle</h3>
+                
+                <div class="cycle-selector">
+                    <!-- Annual Option -->
+                    <div class="cycle-card selected" id="cycle-annual">
+                        <div class="cycle-card-left">
+                            <div class="cycle-radio-indicator"></div>
+                            <div class="cycle-info">
+                                <span class="cycle-name">Annual Billing</span>
+                                <span class="cycle-billing-text" id="card-annual-billing-text">Billed annually</span>
+                            </div>
+                        </div>
+                        <div class="cycle-card-right">
+                            <span class="cycle-price" id="card-annual-price-label">$0 <span>/mo</span></span>
+                            <span class="cycle-save-badge" id="card-annual-savings-badge">Save $0/yr</span>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Option -->
+                    <div class="cycle-card" id="cycle-monthly">
+                        <div class="cycle-card-left">
+                            <div class="cycle-radio-indicator"></div>
+                            <div class="cycle-info">
+                                <span class="cycle-name">Monthly Billing</span>
+                                <span class="cycle-billing-text">Billed monthly, cancel anytime</span>
+                            </div>
+                        </div>
+                        <div class="cycle-card-right">
+                            <span class="cycle-price" id="card-monthly-price-label">$0 <span>/mo</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section-title">2. Account Information</h3>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Work Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" class="form-input" placeholder="you@company.com" required autocomplete="email">
+                    </div>
+                    <div id="email-error" class="input-error-msg">Please enter a valid work email address.</div>
+                    <p class="input-note">We'll use this to activate your workspace and link your subscription.</p>
+                </div>
+
+                <div class="order-summary-box">
+                    <h3 class="form-section-title" style="margin-bottom: 1rem;">Order Summary</h3>
+                    <div class="summary-row">
+                        <span id="summary-plan-label">Plan Name</span>
+                        <span id="summary-price-label">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Taxes</span>
+                        <span>$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Due Today</span>
+                        <span id="summary-total-label">$0.00</span>
+                    </div>
+                </div>
+
+                <button type="button" id="submit-btn" class="checkout-btn">
+                    <span class="spinner" id="btn-spinner"></span>
+                    <span id="btn-text">Proceed to Secure Payment &rarr;</span>
+                </button>
+
+                <div class="checkout-security">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Secure 256-bit SSL checkout processed by Stripe
+                </div>
+
+                <div class="checkout-footer-notes">
+                    By proceeding, you agree to our <a href="/#terms">Terms of Service</a> and <a href="/#privacy">Privacy Policy</a>.
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer light-footer" style="background: #ffffff; border-top: 1px solid #e1e4e8; margin-top: auto; z-index: 10; position: relative;">
+        <div class="container text-dark">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="Logo.png" alt="CandidateHub Logo" class="logo-img" style="height: 24px; width: auto; filter: invert(0.8) brightness(0.2);">
+                        <span class="text-dark" style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.5px; margin-left: 0.5rem;">CandidateHub</span>
+                    </div>
+                    <p class="text-body" style="margin-top:1rem;">The engagement layer your ATS was never designed to provide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="text-dark">Platform</h4>
+                        <a href="/markis" class="text-body">Markis AI</a>
+                        <a href="/platform" class="text-body">Platform</a>
+                        <a href="/#how-it-works" class="text-body">Integrations</a>
+                        <a href="/pricing" class="text-body">Pricing</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Company</h4>
+                        <a href="/about" class="text-body">About</a>
+                        <a href="/#careers" class="text-body">Careers</a>
+                        <a href="/#contact" class="text-body">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Resources</h4>
+                        <a href="/#blog" class="text-body">Blog</a>
+                        <a href="/#help" class="text-body">Help Center</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="text-dark">Legal</h4>
+                        <a href="/#privacy" class="text-body">Privacy</a>
+                        <a href="/#terms" class="text-body">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-body">
+                &copy; 2026 CandidateHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Plan Configurations
+            const plans = {
+                starter: {
+                    name: 'Starter',
+                    heading: 'Activate your Starter workspace.',
+                    lead: 'Automate candidate engagement and scale your talent operations. Set up in under a day alongside your current ATS.',
+                    features: [
+                        { strong: 'Multi-User Access:', text: ' Up to 3 active recruiting/HR user seats.' },
+                        { strong: 'Contact Capacity:', text: ' Store up to 5,000 active candidates & contacts.' },
+                        { strong: 'Automated Nurture:', text: ' Up to 5 concurrent active email/SMS campaigns.' },
+                        { strong: 'Workflow Builder:', text: ' Drag-and-drop actions, delays, and logic.' },
+                        { strong: 'ATS Sync:', text: ' Connect 1 existing ATS integration (Greenhouse, Workday, etc.).' },
+                        { strong: 'Markis AI Assistant:', text: ' AI strategist recommendations for communication plans.' }
+                    ],
+                    prices: {
+                        monthly: 499,
+                        annual: 417,
+                        annualTotal: 5000,
+                        savings: 988
+                    },
+                    stripeUrls: {
+                        monthly: 'https://buy.stripe.com/8x2dRb9nkcYJaFD5rnfQI03',
+                        annual: 'https://buy.stripe.com/6oU4gB8jg8ItfZX4njfQI04'
+                    }
+                },
+                pro: {
+                    name: 'Pro',
+                    heading: 'Activate your Pro workspace.',
+                    lead: 'Broaden automation, deepen integrations, and scale operations across multiple teams and locations.',
+                    features: [
+                        { strong: 'Team Capacity:', text: ' Up to 10 active recruiting/HR user seats.' },
+                        { strong: 'Contact Capacity:', text: ' Store up to 25,000 active candidates & contacts.' },
+                        { strong: 'Uncapped Nurture:', text: ' Unlimited concurrent active email/SMS campaigns.' },
+                        { strong: 'Advanced Builder:', text: ' Multi-branch workflows, approval steps, and notifications.' },
+                        { strong: 'Enterprise Sync:', text: ' Multiple ATS & HRIS integrations.' },
+                        { strong: 'Strategic Controls:', text: ' Role-based permissions, multi-location and team workspaces.' },
+                        { strong: 'Full API Access:', text: ' Seamlessly connect your custom internal tools and databases.' },
+                        { strong: 'Priority Support:', text: ' Dedicated onboarding advisor and priority response times.' }
+                    ],
+                    prices: {
+                        monthly: 999,
+                        annual: 833,
+                        annualTotal: 10000,
+                        savings: 1988
+                    },
+                    stripeUrls: {
+                        monthly: 'https://buy.stripe.com/dRm5kFdDA0bX1532fbfQI05',
+                        annual: 'https://buy.stripe.com/7sY5kFczw7Ep6pn5rnfQI06'
+                    }
+                }
+            };
+
+            // Parse URL Parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const planParam = (urlParams.get('plan') || 'starter').toLowerCase();
+            const billingParam = urlParams.get('billing');
+            const emailParam = urlParams.get('email');
+
+            // Select active plan configuration
+            const currentPlan = plans[planParam] || plans.starter;
+
+            // DOM Elements
+            const checkoutHeading = document.getElementById('checkout-heading');
+            const checkoutLead = document.getElementById('checkout-lead');
+            const checkoutFeatures = document.getElementById('checkout-features');
+            
+            const cycleAnnual = document.getElementById('cycle-annual');
+            const cycleMonthly = document.getElementById('cycle-monthly');
+            const cardAnnualBillingText = document.getElementById('card-annual-billing-text');
+            const cardAnnualPriceLabel = document.getElementById('card-annual-price-label');
+            const cardAnnualSavingsBadge = document.getElementById('card-annual-savings-badge');
+            const cardMonthlyPriceLabel = document.getElementById('card-monthly-price-label');
+
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const summaryPlanLabel = document.getElementById('summary-plan-label');
+            const summaryPriceLabel = document.getElementById('summary-price-label');
+            const summaryTotalLabel = document.getElementById('summary-total-label');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnSpinner = document.getElementById('btn-spinner');
+            const btnText = document.getElementById('btn-text');
+
+            // State
+            let selectedCycle = 'annual'; // default cycle
+
+            // Render Static Content for selected plan
+            checkoutHeading.textContent = currentPlan.heading;
+            checkoutLead.textContent = currentPlan.lead;
+
+            // Render features list
+            checkoutFeatures.innerHTML = '';
+            currentPlan.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.className = 'checkout-feature-item';
+                li.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span><strong>${feat.strong}</strong>${feat.text}</span>
+                `;
+                checkoutFeatures.appendChild(li);
+            });
+
+            // Populate billing selector card text
+            cardAnnualBillingText.textContent = `Billed as $${currentPlan.prices.annualTotal.toLocaleString()} / year`;
+            cardAnnualPriceLabel.innerHTML = `$${currentPlan.prices.annual.toLocaleString()} <span>/mo</span>`;
+            cardAnnualSavingsBadge.textContent = `Save $${currentPlan.prices.savings.toLocaleString()}/yr`;
+            cardMonthlyPriceLabel.innerHTML = `$${currentPlan.prices.monthly.toLocaleString()} <span>/mo</span>`;
+
+            // Initialize cycle selection based on URL parameters
+            if (billingParam === 'monthly') {
+                setCycle('monthly');
+            } else {
+                setCycle('annual');
+            }
+
+            if (emailParam) {
+                emailInput.value = decodeURIComponent(emailParam);
+            }
+
+            // Click event listeners for cycle selectors
+            cycleAnnual.addEventListener('click', () => setCycle('annual'));
+            cycleMonthly.addEventListener('click', () => setCycle('monthly'));
+
+            function setCycle(cycle) {
+                selectedCycle = cycle;
+
+                if (cycle === 'annual') {
+                    cycleAnnual.classList.add('selected');
+                    cycleMonthly.classList.remove('selected');
+                    
+                    summaryPlanLabel.textContent = `${currentPlan.name} Plan (Annual)`;
+                    summaryPriceLabel.textContent = `$${currentPlan.prices.annualTotal.toLocaleString()}.00`;
+                    summaryTotalLabel.textContent = `$${currentPlan.prices.annualTotal.toLocaleString()}.00`;
+                } else {
+                    cycleMonthly.classList.add('selected');
+                    cycleAnnual.classList.remove('selected');
+                    
+                    summaryPlanLabel.textContent = `${currentPlan.name} Plan (Monthly)`;
+                    summaryPriceLabel.textContent = `$${currentPlan.prices.monthly.toLocaleString()}.00`;
+                    summaryTotalLabel.textContent = `$${currentPlan.prices.monthly.toLocaleString()}.00`;
+                }
+            }
+
+            // Simple Email Regex Validation
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Input listener to clear error state
+            emailInput.addEventListener('input', () => {
+                emailError.style.display = 'none';
+                emailInput.style.borderColor = '';
+            });
+
+            // Form Submit / Redirection handler
+            submitBtn.addEventListener('click', () => {
+                const email = emailInput.value.trim();
+
+                // Validate Email
+                if (!email) {
+                    emailError.textContent = 'Email address is required.';
+                    emailError.style.display = 'block';
+                    emailInput.style.borderColor = '#EF4444';
+                    emailInput.focus();
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                    emailError.style.display = 'block';
+                    emailInput.style.borderColor = '#EF4444';
+                    emailInput.focus();
+                    return;
+                }
+
+                // Show loading spinner
+                submitBtn.disabled = true;
+                btnSpinner.style.display = 'inline-block';
+                btnText.textContent = 'Redirecting to Stripe...';
+
+                // Construct Stripe Payment URL
+                const baseUrl = currentPlan.stripeUrls[selectedCycle];
+                const redirectUrl = new URL(baseUrl);
+                redirectUrl.searchParams.set('prefilled_email', email);
+
+                // Add delay for a nice feedback transition, then redirect
+                setTimeout(() => {
+                    window.location.href = redirectUrl.toString();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>

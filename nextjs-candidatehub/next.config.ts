@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         destination: "/pricing.html",
       },
       {
+        source: "/checkout",
+        destination: "/checkout.html",
+      },
+      {
         source: "/trial",
         destination: "/trial.html",
       },
