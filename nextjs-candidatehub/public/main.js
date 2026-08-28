@@ -74,15 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
-
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mainNav = document.getElementById('mainNav');
-            if (mobileMenuBtn && mainNav) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mainNav.classList.toggle('mobile-active');
-                });
-            }
-
         });
     }, observerOptions);
 
@@ -94,15 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
         el.style.transitionDelay = `${(index % 3) * 0.1}s`;
         observer.observe(el);
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-        if (mobileMenuBtn && mainNav) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mainNav.classList.toggle('mobile-active');
-            });
-        }
-
     });
 
     // Diagram generic animation
@@ -115,15 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             node.style.opacity = '1';
             node.style.transform = 'scale(1)';
         }, 1000 + (idx * 200));
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-        if (mobileMenuBtn && mainNav) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mainNav.classList.toggle('mobile-active');
-            });
-        }
-
     });
 
     // Smooth Scrolling for anchor links

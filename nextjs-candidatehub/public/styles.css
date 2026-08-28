@@ -212,15 +212,19 @@ a {
     gap: 2rem;
 }
 
-.main-nav a {
+.main-nav > a {
     font-size: 0.95rem;
     color: var(--text-secondary);
     transition: var(--transition);
     font-weight: 500;
 }
 
-.main-nav a:hover {
+.main-nav > a:hover {
     color: var(--text-primary);
+}
+
+.mobile-cta-group {
+    display: none;
 }
 
 /* Hero Section */
@@ -1069,7 +1073,6 @@ a {
 }
 
 @media (max-width: 768px) {
-    .main-nav { display: none; }
     .footer-content { grid-template-columns: 1fr; gap: 2rem; }
     .testimonial-grid { grid-template-columns: 1fr; }
 }
@@ -1114,18 +1117,31 @@ a {
     gap: 1.5rem;
     border-bottom: 1px solid var(--border-glass);
 }
+#mainNav.mobile-active .mobile-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-glass);
+}
+#mainNav.mobile-active .mobile-cta-group .btn {
+    text-align: center;
+}
 .mobile-menu-btn {
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
 }
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .mobile-menu-btn { display: none !important; }
     #mainNav { display: flex !important; }
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .header-actions { display: none; }
+    .header-actions-simple { display: flex !important; }
     .mobile-menu-btn { display: block !important; }
     #mainNav { display: none; }
 }
