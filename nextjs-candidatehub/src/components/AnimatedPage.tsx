@@ -119,16 +119,10 @@ export default function AnimatedPage({ data }: { data: HomepageData }) {
             <Link href="/insights" onClick={() => setMenuOpen(false)}>Insights</Link>
             <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
             <div className="mobile-cta-group">
-              <Link href="/trial" className="btn btn-secondary nav-btn-trial" style={{ background: '#fff', color: 'var(--primary)', border: '1px solid var(--primary)' }} onClick={() => setMenuOpen(false)}>
-                Start Free Trial
-              </Link>
               <Link href="/demo" className="btn btn-primary" onClick={() => setMenuOpen(false)}>{data.ctaText || "Book a Demo"}</Link>
             </div>
           </nav>
           <div className="header-actions">
-            <Link href="/trial" className="btn btn-secondary nav-btn-trial" style={{ marginRight: '0.5rem', background: '#fff', color: 'var(--primary)', border: '1px solid var(--primary)' }}>
-              Start Free Trial
-            </Link>
             <Link href="/demo" className="btn btn-primary">{data.ctaText || "Book a Demo"}</Link>
           </div>
           <button

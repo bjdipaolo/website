@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple, transparent pricing for growing HR and Talent teams. Start free, automate with Starter, or scale with Pro. No credit card required to get started.">
+    <meta name="description" content="Run a free pilot with Markis AI, then talk to our team about Starter or Pro pricing built around your team.">
     <title>Pricing | CandidateHub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,45 +22,6 @@
         .pricing-section {
             background-color: #F8F9FB;
             padding: 6rem 0;
-        }
-        /* Toggle */
-        .pricing-toggle-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3.5rem;
-        }
-        .toggle-pill-container {
-            display: flex;
-            background: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 50px;
-            padding: 4px;
-        }
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: #4A5568;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .toggle-btn.active {
-            background: #2D7BBF;
-            color: #FFFFFF;
-        }
-        .save-badge {
-            background: #EAF3DE;
-            color: #3B6D11;
-            font-size: 0.75rem;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            white-space: nowrap;
         }
         /* Cards */
         .pricing-cards {
@@ -127,16 +88,6 @@
         }
         .cta-wrapper {
             margin-top: auto;
-        }
-        .trial-strip {
-            background: #EAF3DE;
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
-            color: #3B6D11;
-            font-size: 0.8rem;
-            text-align: center;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
         }
         .pricing-btn {
             display: block;
@@ -378,12 +329,10 @@
                 <a href="/pricing">Pricing</a>
                 <a href="/about">About</a>
                 <div class="mobile-cta-group">
-                    <a href="/trial" class="btn btn-secondary nav-btn-trial" style="background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
                     <a href="/demo" class="btn btn-primary">Book a Demo</a>
                 </div>
             </nav>
             <div class="header-actions">
-                <a href="/trial" class="btn btn-secondary nav-btn-trial" style="margin-right: 0.5rem; background: #fff; color: var(--primary); border: 1px solid var(--primary);">Start Free Trial</a>
                 <a href="/demo" class="btn btn-primary">Book a Demo</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation" style="display: none;">
@@ -398,7 +347,7 @@
             <span style="color: var(--primary); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 1.5rem;">Pricing</span>
             <h1 class="fade-in-up" style="animation-delay: 0.1s; font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; color: #fff;">Simple pricing for teams ready to hire smarter.</h1>
             <p class="fade-in-up" style="animation-delay: 0.2s; max-width: 650px; margin: 0 auto; color: #BFDAFF; font-size: 1.25rem; line-height: 1.6;">
-                Start free. Upgrade when you're ready. No credit card required to get started.
+                Start with a free pilot and prove the impact. When you're ready to scale, we'll build a plan around your team.
             </p>
         </div>
     </section>
@@ -406,62 +355,49 @@
     <!-- Pricing Tiers Section -->
     <section class="pricing-section">
         <div class="container text-center">
-            <!-- Toggle -->
-            <div class="pricing-toggle-wrapper fade-in-up" style="animation-delay: 0.3s;">
-                <div class="toggle-pill-container">
-                    <button class="toggle-btn" data-type="monthly">Monthly</button>
-                    <button class="toggle-btn active" data-type="annual">Annual</button>
-                </div>
-                <div class="save-badge">Save 2 months</div>
-            </div>
-
             <!-- Cards -->
             <div class="pricing-cards">
-                
-                <!-- Free Card -->
+
+                <!-- Pilot Card -->
                 <div class="pricing-card free-card fade-in-up" style="animation-delay: 0.4s;">
-                    <div class="card-plan-name">Free</div>
+                    <div class="card-plan-name">Pilot</div>
                     <div class="card-price-block">
-                        <div class="card-price">$0 <span class="price-mo">forever</span></div>
+                        <div class="card-price">$0 <span class="price-mo">for your pilot</span></div>
                     </div>
                     <div class="card-best-for">
-                        Best for: Individual recruiters and HR generalists who want to plan and brainstorm.
+                        Best for: Teams who want proof before they roll Markis AI out company-wide.
                     </div>
-                    <div class="features-heading">Feature list</div>
+                    <div class="features-heading">What you'll walk away with</div>
                     <ul class="feature-list">
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Access to Markis AI
+                            Full access to Markis AI, run by your own team on real reqs
                         </li>
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Saved chat history and plans
+                            A finished hiring plan or nurture campaign, not a sandbox demo
                         </li>
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Unlimited follow-up questions
+                            Visibility into exactly where candidates are going quiet
                         </li>
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Brainstorm nurturing campaigns
+                            3–5 generated plans a month to test against live openings
                         </li>
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Generate hiring plans and email drafts
+                            A clear, data-backed case for scaling to Starter or Pro
                         </li>
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            3–5 new plans per month
-                        </li>
-                        <li class="feature-item">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            1 user
+                            No credit card and no sales call required to begin
                         </li>
                     </ul>
-                    <div class="free-note">No contact storage, integrations, or workflow execution on the Free plan.</div>
-                    
+                    <div class="free-note">No contact storage, integrations, or workflow execution during the pilot.</div>
+
                     <div class="cta-wrapper">
-                        <a href="https://beta.candidatehub.io" class="pricing-btn btn-free">Get Started Free</a>
+                        <a href="/demo" class="pricing-btn btn-free">Start a Pilot</a>
                     </div>
                 </div>
 
@@ -469,13 +405,13 @@
                 <div class="pricing-card starter-card fade-in-up" style="animation-delay: 0.5s;">
                     <div class="card-plan-name">Starter</div>
                     <div class="card-price-block">
-                        <div class="card-price"><span id="starter-price">$417</span> <span class="price-mo">/mo</span></div>
-                        <span class="billed-annually" id="starter-note">Billed annually as $5,000</span>
+                        <div class="card-price">Custom</div>
+                        <span class="billed-annually" style="opacity: 1;">Pricing tailored to your team</span>
                     </div>
                     <div class="card-best-for">
                         Best for: Lean HR and Talent teams automating follow-up and managing candidate engagement.
                     </div>
-                    <div class="features-heading">Everything in Free, plus:</div>
+                    <div class="features-heading">Everything in Pilot, plus:</div>
                     <ul class="feature-list">
                         <li class="feature-item">
                             <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -524,8 +460,7 @@
                     </ul>
 
                     <div class="cta-wrapper">
-                        <div class="trial-strip">14-day free trial &middot; No credit card required</div>
-                        <a href="/checkout?plan=starter&billing=annual" id="starter-btn" class="pricing-btn btn-starter">Start Free Trial</a>
+                        <a href="/demo" class="pricing-btn btn-starter">Contact Sales</a>
                     </div>
                 </div>
 
@@ -534,8 +469,8 @@
                     <div class="rec-badge">Recommended</div>
                     <div class="card-plan-name">Pro</div>
                     <div class="card-price-block">
-                        <div class="card-price"><span id="pro-price">$833</span> <span class="price-mo">/mo</span></div>
-                        <span class="billed-annually" id="pro-note">Billed annually as $10,000</span>
+                        <div class="card-price">Custom</div>
+                        <span class="billed-annually" style="opacity: 1;">Pricing tailored to your team</span>
                     </div>
                     <div class="card-best-for">
                         Best for: Growing HR and Talent teams that need broader automation, deeper integrations, and operational scale.
@@ -601,7 +536,7 @@
                     </ul>
 
                     <div class="cta-wrapper">
-                        <a href="/checkout?plan=pro&billing=annual" id="pro-btn" class="pricing-btn btn-pro">Get Started with Pro</a>
+                        <a href="/demo" class="pricing-btn btn-pro">Contact Sales</a>
                     </div>
                 </div>
 
@@ -622,7 +557,7 @@
                     <thead>
                         <tr>
                             <th>Feature</th>
-                            <th>Free</th>
+                            <th>Pilot</th>
                             <th>Starter</th>
                             <th>Pro</th>
                         </tr>
@@ -708,7 +643,7 @@
                         </tr>
                         <tr>
                             <td>Best for</td>
-                            <td>Planning</td>
+                            <td>Proving value</td>
                             <td>Execution</td>
                             <td>Scale</td>
                         </tr>
@@ -734,7 +669,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes. The Free plan is free forever with no credit card required. The Starter plan also comes with a 14-day free trial — again, no credit card needed. You can explore the full Starter feature set before committing.
+                            Yes. Start with a free pilot — no credit card required — and run Markis AI on your own team's real work. When you're ready for Starter or Pro, book a demo and we'll put together pricing that fits your team.
                         </div>
                     </div>
                 </div>
@@ -762,17 +697,6 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-button">
-                        Can I switch between monthly and annual billing?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. You can switch to annual billing at any time to lock in the lower rate. If you switch mid-cycle, we'll prorate the difference. Contact us if you need help with a billing change.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-button">
                         What if I need something beyond Pro?
                         <span class="faq-icon">+</span>
                     </button>
@@ -795,7 +719,6 @@
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="/demo" class="btn btn-primary btn-large">Book a Demo</a>
-                <a href="https://beta.candidatehub.io" class="btn btn-secondary-white btn-large" style="background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF;">Start Free</a>
             </div>
         </div>
     </section>
@@ -844,70 +767,6 @@
     </footer>
     <script src="main.js"></script>
     <script>
-        // JS for pricing toggle
-        const toggleBtns = document.querySelectorAll('.toggle-btn');
-        const plans = {
-            starter: {
-                el: document.getElementById('starter-price'),
-                note: document.getElementById('starter-note'),
-                btn: document.getElementById('starter-btn'),
-                month: '499',
-                annual: '417',
-                annualNote: 'Billed annually as $5,000',
-                linkMonth: '/checkout?plan=starter&billing=monthly',
-                linkAnnual: '/checkout?plan=starter&billing=annual'
-            },
-            pro: {
-                el: document.getElementById('pro-price'),
-                note: document.getElementById('pro-note'),
-                btn: document.getElementById('pro-btn'),
-                month: '999',
-                annual: '833',
-                annualNote: 'Billed annually as $10,000',
-                linkMonth: '/checkout?plan=pro&billing=monthly',
-                linkAnnual: '/checkout?plan=pro&billing=annual'
-            }
-        };
-
-        function setPlanType(type) {
-            // Toggle UI state
-            toggleBtns.forEach(btn => {
-                if(btn.dataset.type === type) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-
-            // Update DOM
-            if (type === 'annual') {
-                plans.starter.el.textContent = '$' + plans.starter.annual;
-                plans.starter.note.textContent = plans.starter.annualNote;
-                plans.starter.note.style.opacity = '1';
-                plans.starter.btn.href = plans.starter.linkAnnual;
-                
-                plans.pro.el.textContent = '$' + plans.pro.annual;
-                plans.pro.note.textContent = plans.pro.annualNote;
-                plans.pro.note.style.opacity = '1';
-                plans.pro.btn.href = plans.pro.linkAnnual;
-            } else {
-                plans.starter.el.textContent = '$' + plans.starter.month;
-                plans.starter.note.style.opacity = '0';
-                plans.starter.btn.href = plans.starter.linkMonth;
-                
-                plans.pro.el.textContent = '$' + plans.pro.month;
-                plans.pro.note.style.opacity = '0';
-                plans.pro.btn.href = plans.pro.linkMonth;
-            }
-        }
-
-        toggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => setPlanType(btn.dataset.type));
-        });
-
-        // Initialize correctly
-        setPlanType('annual');
-
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
