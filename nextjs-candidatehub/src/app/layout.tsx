@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import { VisualEditing } from "next-sanity/visual-editing";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable}`}>
       <body>
         {children}
-        <VisualEditing />
       </body>
     </html>
   );
