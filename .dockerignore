@@ -1,0 +1,14 @@
+.git
+.DS_Store
+node_modules
+nextjs-candidatehub
+studio-candidatehub
+docker-compose.yaml
+Dockerfile
+.dockerignore
+package.json
+package-lock.json
+vercel.json
+nixpacks.toml
+*.py
+Blog.csv
