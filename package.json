@@ -7,8 +7,6 @@
     "jsdom": "^29.1.0",
     "next-sanity": "^12.3.0",
     "turndown": "^7.2.4"
-    "scripts": {
-  "start": "npx --yes serve -l 3000 ."
 
   }
 }
